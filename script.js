@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', onScroll, { passive: true });
   document.addEventListener('mousemove', handleMouseMove, { passive: true });
