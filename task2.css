@@ -1,0 +1,204 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.website-container, .container { width: 100%; position: relative; }
+
+.parallax-section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex; justify-content: center; align-items: center;
+  overflow: hidden;
+}
+
+.background {
+  background: linear-gradient(to bottom, #000 0%, #020024 40%, #090979 100%);
+  box-shadow: 0 50px 50px black;
+}
+
+.space-quote { background: linear-gradient(to bottom, #090979 0%, #020024 100%); }
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 18vh 1rem 12vh;
+}
+
+.main-title {
+  margin: 0;
+  line-height: 0.95;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.2rem, 12vw, 6rem);
+  text-transform: uppercase;
+  letter-spacing: clamp(0.1rem, 1vw, 0.5rem);
+  text-shadow: 0 0 10px #4facfe, 0 0 20px #4facfe;
+}
+
+.tagline {
+  font-size: clamp(0.95rem, 2.2vw, 1.4rem);
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+  max-width: min(90vw, 800px);
+  opacity: 0.95;
+}
+
+.scroll-hint { display: flex; flex-direction: column; align-items: center; margin-top: 0.5rem; }
+.scroll-hint span { font-size: 0.95rem; margin-bottom: 0.5rem; opacity: 0.9; }
+.down-arrow { width: 2px; height: 30px; background: #4facfe; position: relative; animation: bounce 2s infinite; }
+.down-arrow::after {
+  content: ''; position: absolute; bottom: -8px; left: -4px; width: 10px; height: 10px;
+  border-right: 2px solid #4facfe; border-bottom: 2px solid #4facfe; transform: rotate(45deg);
+}
+@keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-10px)} 60%{transform:translateY(-5px)} }
+
+.parallax-layer, .layer {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  will-change: transform; backface-visibility: hidden; transform: translateZ(0);
+}
+
+.stars-bg {
+  background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+  z-index: 1;
+}
+.galaxies-bg {
+  background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=2028&q=80');
+  z-index: 2; opacity: 0.7;
+}
+.nebula-bg {
+  background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+  z-index: 3; opacity: 0.6;
+}
+.planets-bg {
+  background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80');
+  z-index: 4; opacity: 0.8;
+}
+
+.layer-1 { z-index: 70; }
+.layer-2 { z-index: 80; }
+.layer-3 { z-index: 90; }
+
+.quote-content { text-align: center; z-index: 50; position: relative; }
+.quote-content h2 {
+  font-family: 'Orbitron', sans-serif; font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 10px #4facfe;
+}
+.quote-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; font-style: italic; }
+
+.content-section { padding: 8rem 4rem; position: relative; z-index: 10; }
+.space-info { background: linear-gradient(to bottom, #090979 0%, #020024 100%); }
+.dark-space { background: linear-gradient(to bottom, #020024 0%, #000 100%); }
+
+.content-wrapper {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+}
+.text-block {
+  font-size: 1.2rem; line-height: 1.8; background: rgba(0, 10, 20, 0.7);
+  padding: 2rem; border-radius: 10px; box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+}
+.text-block h2 { font-family: 'Orbitron', sans-serif; margin-bottom: 1.5rem; color: #4facfe; }
+.image-block { display: flex; justify-content: center; align-items: center; }
+.image-block img { max-width: 100%; border-radius: 10px; box-shadow: 0 0 30px rgba(79, 172, 254, 0.5); }
+
+.space-object { position: absolute; z-index: 5; will-change: transform; }
+
+.planet {
+  width: 120px; height: 120px; border-radius: 50%;
+  background: radial-gradient(circle at 30px 30px, #5cabff, #003a70);
+  box-shadow: 0 0 20px #4facfe;
+}
+.asteroid {
+  width: 60px; height: 60px; background: #555; border-radius: 20%;
+  transform: rotate(45deg); box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+.comet {
+  width: 100px; height: 4px; background: linear-gradient(to right, transparent, #4facfe);
+  border-radius: 50%; box-shadow: 0 0 10px #4facfe;
+}
+.star { width: 4px; height: 4px; background: #fff; border-radius: 50%; box-shadow: 0 0 5px #fff; }
+
+
+.object-1 { top: 20%; left: 10%; }
+.object-2 { top: 60%; left: 85%; }
+.object-3 { top: 80%; left: 15%; }
+.object-4 { top: 40%; left: 75%; }
+.object-5 { top: 10%; left: 50%; }
+.object-6 { top: 70%; left: 60%; }
+.object-7 { top: 30%; left: 90%; }
+.object-8 { top: 85%; left: 40%; }
+.object-9 { top: 15%; left: 25%; }
+.object-10 { top: 50%; left: 5%; }
+
+.rock {
+  background-image: url("https://i.imgur.com/F4xnzjU.png");
+  width: 100vw; height: 100vh;
+  position: absolute; bottom: 0; left: 0;
+  background-position: left center; transform: scaleX(-1);
+  opacity: 0.15; pointer-events: none;
+}
+
+
+.rocks { position: absolute; z-index: 6; }
+
+.site-footer { background: #000; padding: 2rem; text-align: center; font-size: 0.9rem; color: #4facfe; }
+
+
+@media (max-width: 968px) {
+  .main-title { font-size: clamp(2rem, 10vw, 3rem); }
+  .quote-content h2 { font-size: 2rem; }
+  .content-wrapper { grid-template-columns: 1fr; }
+  .content-section { padding: 4rem 2rem; }
+}
+
+@media (max-width: 600px) {
+  .hero-content { padding: 14vh 1rem 10vh; }
+  .main-title { letter-spacing: 0.12rem; }
+  .tagline { font-size: 1rem; }
+  .space-object { display: none; }
+  .quote-content h2 { font-size: 1.5rem; }
+  .quote-content p { font-size: 1rem; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer, .layer, .space-object, .main-title, .tagline, .scroll-hint {
+    transition: none !important; animation: none !important; transform: none !important;
+  }
+}
+
+.hero-content,
+.main-title,
+.tagline,
+.scroll-hint {
+  position: relative;
+  z-index: 2000;   
+  opacity: 1;     
+  color: #fff;     
+}
+
+
+.parallax-layer { z-index: 1; }
+.layer-1 { z-index: 10; }
+.layer-2 { z-index: 20; }
+.layer-3 { z-index: 30; }
+
